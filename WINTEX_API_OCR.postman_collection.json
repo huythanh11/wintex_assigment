@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "9c9eb6ee-a673-4898-aa5f-328c236eac47",
+		"name": "WINTEX_API_OCR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1571358",
+		"_collection_link": "https://lunar-resonance-82970.postman.co/workspace/MW~b85e6f4e-442e-4d0f-b412-fcf9c9a17942/collection/1571358-9c9eb6ee-a673-4898-aa5f-328c236eac47?action=share&source=collection_link&creator=1571358"
+	},
+	"item": [
+		{
+			"name": "SCAN_IDCard_OCR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const Ajv = require('ajv');",
+							"",
+							"const responseSchema = {",
+							"   \"type\": \"object\",",
+							"   \"properties\": {",
+							"      \"id\": { \"type\": \"string\" },",
+							"      \"name\": { \"type\": \"string\" },",
+							"      \"birthday\": { \"type\": \"string\" },",
+							"      \"address\": { \"type\": \"string\" }",
+							"   },",
+							"   \"required\": [\"id\", \"name\", \"birthday\", \"address\"]",
+							"};",
+							"",
+							"const responseBody = pm.response.json();",
+							"const ajv = new Ajv();",
+							"const isValid = ajv.validate(responseSchema, responseBody);",
+							"pm.test(\"Response matches the expected schema\", function () {",
+							"    pm.expect(isValid).to.be.true;",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is correct \", function () {",
+							"    pm.expect(responseBody.id).to.be.eql(pm.collectionVariables.get(\"expectedId\"));",
+							"    pm.expect(responseBody.name).to.be.eql(pm.collectionVariables.get(\"expectedName\"));",
+							"    pm.expect(responseBody.birthday).to.be.eql(pm.collectionVariables.get(\"expectedBirthday\"));",
+							"    pm.expect(responseBody.address).to.be.eql(pm.collectionVariables.get(\"expectedAddress\"));",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const path = require('path');",
+							"",
+							"const imagePath = '/path/to/cardID_ocr_img.jpg';",
+							"const imageBuffer = fs.readFileSync(imagePath);",
+							"const imageBase64 = Buffer.from(imageBuffer).toString('base64');",
+							"pm.variables.set('var_Base64_IDCard', imageBase64);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept-encoding": true,
+					"connection": true,
+					"content-length": true,
+					"host": true,
+					"accept": true,
+					"user-agent": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"image\":{{var_Base64_IDCard}}\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/identity/ocr",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"identity",
+						"ocr"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
