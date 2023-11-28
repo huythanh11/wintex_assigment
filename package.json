@@ -1,0 +1,28 @@
+{
+  "name": "wintex_assignment",
+  "version": "1.0.0",
+  "description": "This is assignment",
+  "main": "index.js",
+  "scripts": {
+    "report": "node reporter_multiple.js",
+    "tag": " ./node_modules/.bin/cucumber-js --require cucumber.js --tags @search --require src/steps/ -f json:reports/cucumber_report.json --publish-quiet",
+    "test": "npm run tag && npm run report"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "huy",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^7.3.2",
+    "@playwright/test": "^1.22.2",
+    "axios": "^0.27.2",
+    "chai": "^4.3.6",
+    "cucumber-html-reporter": "^5.5.0",
+    "dotenv": "^16.3.1",
+    "multiple-cucumber-html-reporter": "^1.21.4",
+    "playwright": "^1.19.0",
+    "prettier": "^2.5.1"
+  }
+}

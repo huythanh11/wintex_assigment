@@ -1,0 +1,6 @@
+reports/videos
+reports/cucumber-htmlreport.html/assets/
+reports/cucumber-htmlreport.html/features/
+reports/screenshots/
+node_modules
+package-lock.json
