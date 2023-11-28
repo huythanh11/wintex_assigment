@@ -1,0 +1,260 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "search-products-function;verify-result-list-is-paginated-if-there-are-more-than-16-items",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Verify result list is paginated if there are more than 16 items",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 666000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "the user is on the search page",
+            "match": {
+              "location": "src/steps/search-step.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2175000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Department",
+                      "Books"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Keyword",
+                      "apple"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Language",
+                      "en"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 7,
+            "name": "the user performs a search with the following details:",
+            "match": {
+              "location": "src/steps/search-step.js:29"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2541000000,
+              "error_message": "locator.hover: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- waiting for locator('.icp-nav-link-inner .nav-line-2 .nav-icon.nav-arrow').first()\u001b[22m\n\n    at SearchPage.selectLanguage (/Volumes/Data/Sourcecode/wintext/wintex_assigment/src/pageobject/SearchPage.js:43:60)\n    at World.<anonymous> (/Volumes/Data/Sourcecode/wintext/wintex_assigment/src/steps/search-step.js:31:22)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the result list displays exactly 16 items per page",
+            "match": {
+              "location": "src/steps/search-step.js:36"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "pagination display",
+            "match": {
+              "location": "src/steps/search-step.js:42"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (/Volumes/Data/Sourcecode/wintext/wintex_assigment/src/setup/hooks.js:45:36)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 29000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@fulltest",
+            "line": 1
+          },
+          {
+            "name": "@search",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "search-products-function;verify-result-list-can-be-sorted-on-demand",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Verify result list can be sorted on demand",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 148000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "the user is on the search page",
+            "match": {
+              "location": "src/steps/search-step.js:24"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2201000000,
+              "error_message": "page.goto: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- navigating to \"https://www.amazon.com/\", waiting until \"load\"\u001b[22m\n\n    at Homepage.launchApp (/Volumes/Data/Sourcecode/wintext/wintex_assigment/src/pageobject/Homepage.js:14:20)\n    at World.<anonymous> (/Volumes/Data/Sourcecode/wintext/wintex_assigment/src/steps/search-step.js:25:20)"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Department",
+                      "Books"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Keyword",
+                      "apple"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Language",
+                      "en"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 18,
+            "name": "the user performs a search with the following details:",
+            "match": {
+              "location": "src/steps/search-step.js:29"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "the user changes the sort option to \"Publication Date\"",
+            "match": {
+              "location": "src/steps/search-step.js:48"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "the result list is sorted by Publication date",
+            "match": {
+              "location": "src/steps/search-step.js:55"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "page.screenshot: Target page, context or browser has been closed\n    at World.<anonymous> (/Volumes/Data/Sourcecode/wintext/wintex_assigment/src/setup/hooks.js:45:36)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@fulltest",
+            "line": 1
+          },
+          {
+            "name": "@search",
+            "line": 15
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "search-products-function",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Search products function",
+    "tags": [
+      {
+        "name": "@fulltest",
+        "line": 1
+      }
+    ],
+    "uri": "src/scenarios/search.feature"
+  }
+]

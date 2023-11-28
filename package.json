@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "report": "node reporter_multiple.js",
-    "tag": " ./node_modules/.bin/cucumber-js --require cucumber.js --tags @search --require src/steps/ -f json:reports/cucumber_report.json --publish-quiet",
+    "tag": " ./node_modules/.bin/cucumber-js --require cucumber.js --tags @fulltest --require src/steps/ -f json:reports/cucumber_report.json --publish-quiet",
     "test": "npm run tag && npm run report"
   },
   "repository": {
